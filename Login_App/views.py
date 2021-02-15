@@ -34,7 +34,7 @@ def login_user(request):
 
 @login_required
 def logout_user(request):
-    return render(request, 'Login_App/signup.html')
+    return render(request, 'Login_App/logout.html')
 
 
 @login_required
