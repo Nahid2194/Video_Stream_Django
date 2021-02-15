@@ -3,15 +3,15 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def signup(request):
+def signup_user(request):
     return render(request, 'Login_App/signup.html')
 
 
-def login(request):
+def login_user(request):
     return render(request, 'Login_App/login.html')
 
 
-def logout(request):
+def logout_user(request):
     return render(request, 'Login_App/signup.html')
 
 
