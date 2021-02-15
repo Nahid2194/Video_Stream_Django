@@ -13,3 +13,7 @@ def login(request):
 
 def logout(request):
     return render(request, 'Login_App/signup.html')
+
+
+def profile(request):
+    return render(request, 'Login_App/profile.html')
