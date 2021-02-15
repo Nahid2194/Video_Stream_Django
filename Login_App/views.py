@@ -44,6 +44,13 @@ def profile(request):
     return render(request, 'Login_App/profile.html', context={})
 
 
+@login_required
 def edit_profile(request):
-    form = EditProfileForm()
+    profile = Profile.objects.get(user=request.user)
+    form = EditProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('Login_App:profile'))
     return render(request, 'Login_App/edit_profile.html', context={'form': form})
