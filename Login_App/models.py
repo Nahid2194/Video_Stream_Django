@@ -9,7 +9,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(
         upload_to='profile_picture', blank=True)
     about = models.CharField(max_length=250, blank=True)
-    full_name = models.CharField(max_length=255, blank=True)
+    fullname = models.CharField(max_length=255, blank=True)
     website = models.URLField(blank=True)
 
     def __str__(self):

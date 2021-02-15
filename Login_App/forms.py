@@ -35,8 +35,10 @@ class LoginForm(AuthenticationForm):
 
 
 class EditProfileForm(forms.ModelForm):
-    full_name = forms.CharField(required=True, label="", widget=forms.TextInput(
-        attrs={'placeholder': 'Enter Your Full Name'}))
+    fullname = forms.CharField(
+        required=False,
+        label="Full name",
+    )
 
     class Meta:
         model = Profile
