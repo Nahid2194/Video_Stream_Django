@@ -8,7 +8,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name='profile')
     profile_picture = models.ImageField(
         upload_to='profile_picture', blank=True)
-    about = models.CharField(blank=True, max_length=250)
+    about = models.CharField(max_length=250, blank=True)
     full_name = models.CharField(max_length=255, blank=True)
     website = models.URLField(blank=True)
 

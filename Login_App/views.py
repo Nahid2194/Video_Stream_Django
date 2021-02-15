@@ -41,4 +41,8 @@ def logout_user(request):
 
 @login_required
 def profile(request):
-    return render(request, 'Login_App/profile.html')
+    return render(request, 'Login_App/profile.html', context={})
+
+
+def edit_profile(request):
+    return render(request, 'Login_App/edit_profile.html', context={})
