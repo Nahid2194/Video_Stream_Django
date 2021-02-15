@@ -3,6 +3,7 @@ from django.urls import reverse
 from Login_App.forms import LoginForm, SignupForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from .models import Profile
 # Create your views here.
 
 
@@ -23,18 +24,19 @@ def login_user(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get(username='username')
-            password = form.cleaned_data.get(username='password')
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            return HttpResponseRedirect(reverse('stream_app:home'))
             if user is not None:
-                return HttpResponseRedirect(reverse('Login_App:signup'))
+                login(request, user)
+                return HttpResponseRedirect(reverse('home'))
     return render(request, 'Login_App/login.html', context={'form': form})
 
 
 @login_required
 def logout_user(request):
-    return render(request, 'Login_App/logout.html')
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
 
 
 @login_required
