@@ -18,7 +18,8 @@ def signup_user(request):
 
 
 def login_user(request):
-    return render(request, 'Login_App/login.html')
+    form = LoginForm()
+    return render(request, 'Login_App/login.html', context={'form': form})
 
 
 @login_required
