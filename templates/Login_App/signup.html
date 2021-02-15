@@ -22,11 +22,12 @@
     <div class="form-container">
         <div class="sign-up">
             <h4>Sign Up here</h4><br>
-            <form action="" method="POST">
-                {{form|crispy}}
+            <form method="POST">
+                {{ form|crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-primary btn-sm" style="text-align: left;">Sign Up</button>
+                <button type="submit" class="btn btn-success btn-sm">Create Account</button>
             </form>
+            <br>
         </div>
         <div class="login my-3">
             <p>Have an account? <a href="{% url 'Login_App:login' %}">Login here</a></p>

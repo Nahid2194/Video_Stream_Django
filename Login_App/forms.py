@@ -2,7 +2,7 @@ from Login_App.models import Profile
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from django.db import models
 # signup Form
 
 
@@ -33,7 +33,7 @@ class LoginForm(AuthenticationForm):
         fields = ('email', 'password')
 
 
-class EditProfileForm(models.ModelForm):
+class EditProfileForm(forms.ModelForm):
     full_name = forms.CharField(required=True, label="", widget=forms.TextInput(
         attrs={'placeholder': 'Enter Your Full Name'}))
 
