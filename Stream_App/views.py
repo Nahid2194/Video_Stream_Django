@@ -33,4 +33,4 @@ def edit_videos(request):
 
 def details_videos(request, slug):
     video = Video.objects.get(slug=slug)
-    return render(request, 'Stream_App/home.html', context={'video': video})
+    return render(request, 'Stream_App/video_details.html', context={'video': video})
