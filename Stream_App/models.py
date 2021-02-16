@@ -9,7 +9,7 @@ class Video(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='post_user')
     video_title = models.CharField(max_length=250, verbose_name='Put a Title')
-    slug = models.SlugField(max_length=5, unique=True)
+    slug = models.SlugField(max_length=250, unique=True)
     video_content = models.FileField(
         verbose_name='Upload Video', upload_to='videos')
     thumbnail = models.ImageField(

@@ -5,10 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Stream</title>
+    <style>
+        .project-container {
+            background-color: #b4c4c8;
+        }
+    </style>
 </head>
 
 <body>
     {% include "navbar.html" %}
+
+    <div class="card-deck">
+        <div class="container">
+            <div class="row mb-5 pb-5">
+                {% for video in videos %}
+                <div class="col-md-3 mt-5">
+                    <img src="/media/{{video.thumbnail}}" class="img-fluid card-img-top" alt="">
+
+                    <a href="{% url 'Stream_App:details_videos' slug=video.slug %}"
+                        class="text">{{video.video_title}}</a>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

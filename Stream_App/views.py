@@ -8,7 +8,8 @@ from .models import Comment, Video
 
 
 def home(request):
-    return render(request, 'Stream_App/home.html', context={})
+    videos = Video.objects.all()
+    return render(request, 'Stream_App/home.html', context={'videos': videos})
 
 
 @login_required
@@ -30,5 +31,6 @@ def edit_videos(request):
     return render(request, 'Stream_App/home.html')
 
 
-def details_videos(request):
-    return render(request, 'Stream_App/home.html')
+def details_videos(request, slug):
+    video = Video.objects.get(slug=slug)
+    return render(request, 'Stream_App/home.html', context={'video': video})
