@@ -1,10 +1,8 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-
 from .forms import CommentForm, VideoForm
 import uuid
-import uuid4
 from .models import Comment, Video
 # Create your views here.
 
