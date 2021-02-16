@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block title_block %} My Videos {% endblock %}
+{% block css_block %}
+
+{% endblock %}
+
+{% block body_block %}
+{% include "navbar.html" %}
+<div class="card-deck">
+    <div class="container">
+        <div class="row mb-5 pb-5">
+            {% for video in user.post_user.all %}
+            <div class="col-md-3 mt-5">
+                <img src="/media/{{video.thumbnail}}" class="img-fluid card-img-top" alt="">
+
+                <a href="{% url 'Stream_App:details_videos' slug=video.slug %}" class="text">{{video.video_title}}</a>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

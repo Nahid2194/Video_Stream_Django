@@ -1,9 +1,12 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm, VideoForm
 import uuid
 from .models import Comment, Video
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView, DetailView, View
+
 # Create your views here.
 
 
@@ -31,6 +34,11 @@ def edit_videos(request):
     return render(request, 'Stream_App/home.html')
 
 
+@login_required
 def details_videos(request, slug):
     video = Video.objects.get(slug=slug)
     return render(request, 'Stream_App/video_details.html', context={'video': video})
+
+
+class MyVideos(LoginRequiredMixin, TemplateView):
+    template_name = "Stream_App/myvideos.html"

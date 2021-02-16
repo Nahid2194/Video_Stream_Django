@@ -11,4 +11,5 @@ urlpatterns = [
     path('edit-video/', views.edit_videos, name='edit_videos'),
     path('details-video/<slug:slug>/',
          views.details_videos, name='details_videos'),
+    path('my-videos/', views.MyVideos.as_view(), name='my_videos'),
 ]

@@ -6,10 +6,12 @@
 {% endblock %}
 
 {% block body_block %}
-
+{% include "navbar.html" %}
 <div class="container">
     <div class="video-details">
         <h3>{{video.video_title}}</h3>
+
+
         <video src="/media/{{video.video_content}}" controls width="750px" height="500px">
         </video> <br>
         <img src="/media/{{video.user.profile.profile_picture}}" alt="" width="23px" height="23px"
