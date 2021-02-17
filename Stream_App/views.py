@@ -42,3 +42,9 @@ def details_videos(request, slug):
 
 class MyVideos(LoginRequiredMixin, TemplateView):
     template_name = "Stream_App/myvideos.html"
+
+
+class Delete_Video(LoginRequiredMixin, DeleteView):
+    model = Video
+    template_name = "Stream_App/delete_video.html"
+    success_url = reverse_lazy('Stream_App:my_videos')

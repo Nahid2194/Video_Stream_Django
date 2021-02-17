@@ -12,7 +12,8 @@
         <h3>{{video.video_title}}</h3>
 
 
-        <video src="/media/{{video.video_content}}" controls width="750px" height="500px">
+        <video autoplay loop controls muted width="750px" height="500px">
+            <source src="/media/{{video.video_content}}" type="video/mp4" />
         </video> <br>
         <img src="/media/{{video.user.profile.profile_picture}}" alt="" width="23px" height="23px"
             class="rounded-circle">{{video.user.username}} <br>
