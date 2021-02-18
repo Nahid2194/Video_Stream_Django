@@ -60,4 +60,4 @@ def edit_video(request, slug):
             form.save()
             form = VideoForm(instance=video)
             return HttpResponseRedirect(reverse('Stream_App:my_videos'))
-    return render(request, 'Stream_App/update_video.html', context={'form': form})
+    return render(request, 'Stream_App/update_video.html', context={'form': form, 'edit': True})

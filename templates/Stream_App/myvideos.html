@@ -23,7 +23,8 @@
                             <small> {{video.publish_date}}</small>
                         </div>
                         <div class="col-6 pb-3 text-right pl-2">
-
+                            <a href="{% url 'Stream_App:delete_video' pk=video.pk %}"><button type="button"
+                                    class="btn btn-warning btn-sm">Delete</button></a>
                             <a href="{% url 'Stream_App:edit_video' slug=video.slug %}"><button
                                     class="btn btn-primary btn-sm">Edit Video</button></a>
                         </div>
