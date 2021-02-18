@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block title_block %} Update Video {% endblock %}
+{% block css_block %}
+
+{% endblock %}
+
+{% block body_block %}
+<form action="" enctype=multipart/form-data method="POST">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <br>
+    <a href="{% url 'Stream_App:my_videos' %}"><button class="btn btn-info btn-sm">Cancel</button></a>
+    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+</form>
+{% endblock %}

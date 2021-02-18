@@ -18,9 +18,14 @@
                 <figcaption class="info-wrap">
                     <a href="{% url 'Stream_App:details_videos' slug=video.slug %}"
                         class="text">{{video.video_title}}</a>
-                    <div class="action-wrap">
-                        <div class="price-wrap h5">
-                            <small><span class="price-new"> {{video.publish_date}}</span></small>
+                    <div class="action-wrap row">
+                        <div class="price-wrap h6 col-6">
+                            <small> {{video.publish_date}}</small>
+                        </div>
+                        <div class="col-6 pb-3 text-right pl-2">
+
+                            <a href="{% url 'Stream_App:edit_video' slug=video.slug %}"><button
+                                    class="btn btn-primary btn-sm">Edit Video</button></a>
                         </div>
                     </div>
                 </figcaption>

@@ -48,3 +48,16 @@ class Delete_Video(LoginRequiredMixin, DeleteView):
     model = Video
     template_name = "Stream_App/delete_video.html"
     success_url = reverse_lazy('Stream_App:my_videos')
+
+
+@login_required
+def edit_video(request, slug):
+    video = Video.objects.get(slug=slug)
+    form = VideoForm(instance=video)
+    if request.method == 'POST':
+        form = VideoForm(request.POST, request.FILES, instance=video)
+        if form.is_valid():
+            form.save()
+            form = VideoForm(instance=video)
+            return HttpResponseRedirect(reverse('Stream_App:my_videos'))
+    return render(request, 'Stream_App/update_video.html', context={'form': form})
