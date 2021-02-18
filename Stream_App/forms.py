@@ -9,6 +9,7 @@ class CommentForm(forms.ModelForm):
 
 
 class VideoForm(forms.ModelForm):
+
     class Meta:
         model = Video
         fields = ['video_title', 'video_content', 'thumbnail']
