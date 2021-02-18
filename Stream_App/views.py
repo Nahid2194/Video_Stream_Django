@@ -37,7 +37,16 @@ def edit_videos(request):
 @login_required
 def details_videos(request, slug):
     video = Video.objects.get(slug=slug)
-    return render(request, 'Stream_App/video_details.html', context={'video': video})
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.video = video
+            comment.save()
+            return HttpResponseRedirect(reverse('Stream_App:details_videos', kwargs={'slug': slug}))
+    return render(request, 'Stream_App/video_details.html', context={'video': video, 'form': comment_form})
 
 
 class MyVideos(LoginRequiredMixin, TemplateView):

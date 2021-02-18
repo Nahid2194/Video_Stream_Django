@@ -34,14 +34,13 @@
 
                             </div>
                             <div class="col-5 pb-1">
-                                {% if user.profile.profile_picture %}
-                                <a class="nav-link" href="{% url 'Login_App:profile' %}"><img
-                                        src="/media/{{user.profile.profile_picture}}" alt="" width="23px" height="23px"
-                                        class="rounded-circle">{{user.username}}</a>
+                                {% if video.user.profile.profile_picture %}
+                                <span> <img src="/media/{{video.user.profile.profile_picture}}" alt="" width="23px"
+                                        height="23px" class="rounded-circle"> <small>{{user.username}}</small></span>
+
                                 {% else %}
-                                <a class="nav-link col-6" href="{% url 'Login_App:profile' %}"><img
-                                        src="/static/images/avatar.jpg" width="23px" height="23px"
-                                        class="rounded-circle" alt="default">{{user.username}}</a>
+                                <span><img src="/static/images/avatar.jpg" width="23px" height="23px"
+                                        class="rounded-circle" alt="default"><small>{{user.username}} </small> </span>
                                 {% endif %}
                             </div>
                         </div>
