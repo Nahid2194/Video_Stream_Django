@@ -80,3 +80,8 @@ class add_category(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.save()
         return HttpResponseRedirect(reverse('Stream_App:upload_videos'))
+
+
+def categories(request):
+    categories = Category.objects.all()
+    return render(request, 'Stream_App/categories.html', context={'categories': categories})
