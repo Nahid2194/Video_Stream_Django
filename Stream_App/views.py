@@ -12,7 +12,10 @@ from django.views.generic import CreateView, UpdateView, DeleteView, TemplateVie
 
 def home(request):
     videos = Video.objects.all()
-    return render(request, 'Stream_App/home.html', context={'videos': videos})
+    if request.method == 'GET':
+        search = request.GET.get('search', '')
+        result = Video.objects.filter(video_title__icontains=search)
+    return render(request, 'Stream_App/home.html', context={'videos': videos, 'search': search, 'result': result})
 
 
 def category_list(request, pk):
