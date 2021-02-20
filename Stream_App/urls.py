@@ -15,4 +15,5 @@ urlpatterns = [
     path('my-videos/', views.MyVideos.as_view(), name='my_videos'),
     path('delete-video/<pk>/', views.Delete_Video.as_view(), name='delete_video'),
     path('categories/', views.categories, name='categories'),
+    path('category-videos/<pk>/', views.category_list, name='category_list'),
 ]

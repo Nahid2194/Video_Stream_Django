@@ -40,14 +40,15 @@
                     <div class="col-xl-4 col-md-4">
                         <div class="single_blog">
                             <div class="blog_thumb">
-                                <a href="#">
+                                <a href="{% url 'Stream_App:category_list' pk=category.id %}">
                                     <img src="/media/{{ category.image }}" alt="{{ video.title }}"
                                         title="{{ video.title }}" class="category-img">
                                 </a>
                             </div>
                             <div class="blog_meta">
                                 <p><strong>{{ category.video_category.count }} </strong>videos</p>
-                                <h3><a href="#">{{ category.name }}</a></h3>
+                                <h3><a href="{% url 'Stream_App:category_list' pk=category.id %}">
+                                        {{ category.name }}</a></h3>
                             </div>
                         </div>
                     </div>

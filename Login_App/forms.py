@@ -23,15 +23,14 @@ class SignupForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(
-        required=True, label="",
-        widget=forms.TextInput(attrs={'placeholder': 'username'}))
-    password = forms.CharField(required=True, label="", widget=forms.PasswordInput(
-        attrs={'placeholder': 'Enter Your Password'}))
+    username = forms.CharField(label="", widget=forms.TextInput(
+        attrs={'placeholder': "Username"}))
+    password = forms.CharField(label="", widget=forms.PasswordInput(
+        attrs={'placeholder': 'Password'}))
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ['username', 'password']
 
 
 class EditProfileForm(forms.ModelForm):

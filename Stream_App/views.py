@@ -15,6 +15,12 @@ def home(request):
     return render(request, 'Stream_App/home.html', context={'videos': videos})
 
 
+def category_list(request, pk):
+    category_info = Category.objects.get(pk=pk)
+    category_videos = Video.objects.filter(category=category_info)
+    return render(request, 'Stream_App/category_list.html', context={'videos': category_videos})
+
+
 @login_required
 def upload_videos(request):
     form = VideoForm()

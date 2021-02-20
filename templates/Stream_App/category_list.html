@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+    <style>
+        .project-container {
+            background-color: #b4c4c8;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 10vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+
+    <div class="container my-5">
+        <div class="row">
+            {% for video in videos %}
+            <div class="col-md-6 col-sm-12 col-lg-3">
+                <figure class="card card-product">
+                    <div class="img-wrap card-body">
+                        <img src="/media/{{video.thumbnail}}" class=" card-img-top" alt="">
+                    </div>
+                    <figcaption class="info-wrap">
+                        <a href="{% url 'Stream_App:details_videos' slug=video.slug %}"
+                            class="text pl-3">{{video.video_title}}</a>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div class="price-wrap h6 col-6">
+                                <small> {{video.publish_date}}</small>
+
+                            </div>
+                            <div class="col-5 pb-1">
+                                {% if video.user.profile.profile_picture %}
+                                <span> <img src="/media/{{video.user.profile.profile_picture}}" alt="" width="23px"
+                                        height="23px" class="rounded-circle"> <small>{{user.username}}</small></span>
+
+                                {% else %}
+                                <span><img src="/static/images/avatar.jpg" width="23px" height="23px"
+                                        class="rounded-circle" alt="default"><small>{{user.username}} </small> </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
