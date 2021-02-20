@@ -4,6 +4,7 @@ from Login_App.forms import LoginForm, SignupForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import Profile
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -49,7 +50,7 @@ def edit_profile(request):
     profile = Profile.objects.get(user=request.user)
     form = EditProfileForm(instance=profile)
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=profile)
+        form = EditProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('Login_App:profile'))
