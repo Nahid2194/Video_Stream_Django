@@ -5,7 +5,18 @@ import uuid
 # Create your models here.
 
 
+class Category(models.Model):
+    name = models.CharField(
+        max_length=100, verbose_name='Category Name', unique=True)
+    image = models.ImageField(upload_to='categories_image')
+
+    def __str__(self):
+        return self.name
+
+
 class Video(models.Model):
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name='video_category')
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='post_user')
     video_title = models.CharField(max_length=250, verbose_name='Put a Title')

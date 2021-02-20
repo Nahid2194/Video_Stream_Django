@@ -8,21 +8,27 @@
         width: 725px;
         border: 1px solid #ccc;
         padding: 40px;
+        margin-top: 100px;
     }
 </style>
 {% endblock %}
-<div class="edit-profile">
-    <form action="" method="POST" enctype="multipart/form-data">
-        <h5 align="center">Edit your profile</h5>
-        {{ form|crispy}}
-        {% csrf_token %}
-        <br>
-        <button type="submit" class="btn btn-primary btn-sm">Update</button>
-        <a href="{% url 'Login_App:profile' %}">
-            <button class="btn btn-info btn-sm">Back</button>
-        </a>
-    </form>
+<div class="container ">
+    <div class="ml-auto">
+        <div class="edit-profile">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <h5 align="center">Edit your profile</h5>
+                {{ form|crispy}}
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                <a href="{% url 'Login_App:profile' %}">
+                    <button class="btn btn-info btn-sm">Back</button>
+                </a>
+            </form>
 
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}

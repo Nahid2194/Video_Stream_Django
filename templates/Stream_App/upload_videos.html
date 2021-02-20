@@ -2,14 +2,21 @@
 {% load crispy_forms_tags %}
 {% block title_block %} Upload Video {% endblock %}
 {% block css_block %}
-
+<style>
+    .radius {}
+</style>
 {% endblock %}
 
 {% block body_block %}
-<form action="" enctype=multipart/form-data method="POST">
-    {{ form|crispy }}
-    {% csrf_token %}
-    <br>
-    <button type="submit" class="btn btn-primary btn-sm">Upload</button>
-</form>
-{% endblock %}
+{% include "navbar.html"%}
+
+<div class="container row">
+    <form class="col-lg-4 ml-auto col-sm-6" action="" enctype=multipart/form-data method="POST">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <br>
+        <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+    </form>
+    </center>
+
+    {% endblock %}
