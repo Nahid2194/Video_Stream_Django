@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
-from .forms import CommentForm, VideoForm
+from .forms import CommentForm, VideoForm, CategoryForm
 import uuid
-from .models import Comment, Video
+from .models import Comment, Video, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView, DetailView, View
 
@@ -70,3 +70,13 @@ def edit_video(request, slug):
             form = VideoForm(instance=video)
             return HttpResponseRedirect(reverse('Stream_App:my_videos'))
     return render(request, 'Stream_App/update_video.html', context={'form': form, 'edit': True})
+
+
+class add_category(LoginRequiredMixin, CreateView):
+    model = Category
+    template_name = 'Stream_App/categoryform.html'
+    fields = ['name', 'image']
+
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(reverse('Stream_App:upload_videos'))

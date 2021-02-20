@@ -8,6 +8,7 @@ app_name = 'Stream_App'
 urlpatterns = [
     path('', views.home, name='home'),
     path('upload-video/', views.upload_videos, name='upload_videos'),
+    path('add-category/', views.add_category, name='add_category'),
     path('edit-video/<slug:slug>/', views.edit_video, name='edit_video'),
     path('details-video/<slug:slug>/',
          views.details_videos, name='details_videos'),

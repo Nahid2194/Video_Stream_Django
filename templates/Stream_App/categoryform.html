@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block title_block %} Add Category {% endblock %}
+{% block css_block %}
+
+{% endblock %}
+
+{% block body_block %}
+{% include "navbar.html"%}
+
+<div class="container row">
+    <form class="col-lg-4 ml-auto col-sm-6" action="" enctype=multipart/form-data method="POST">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add</button>
+    </form>
+    </center>
+
+    {% endblock %}
